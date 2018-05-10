@@ -26,8 +26,17 @@ namespace CSharpSamples.CodeFirstApproach.Configuration
             //table  
             ToTable("UserProfiles");
 
-            //relationship  
+            //one to one relationship  
             HasRequired(t => t.User).WithRequiredDependent(u => u.UserProfile);
+
+            //one to many relationship  
+            //HasRequired(t => t.Customer).WithMany(c => c.Orders).HasForeignKey(t => t.CustomerId).WillCascadeOnDelete(false);
+
+            //Many to many relationship  
+            //HasMany(t => t.Courses).WithMany(c => c.Students)
+            //                     .Map(t => t.ToTable("StudentCourse")
+            //                         .MapLeftKey("StudentId")
+            //                         .MapRightKey("CourseId"));
         }
     }
 }

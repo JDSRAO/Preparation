@@ -36,6 +36,7 @@ namespace CoreCSharp
         {
             using (var context = new EFDbContext())
             {
+                //context.Database.sq
                 context.Database.Delete();
                 context.Database.Create();
             }

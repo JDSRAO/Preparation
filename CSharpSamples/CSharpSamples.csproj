@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeFirstApproach\DBConfiguration.cs" />
     <Compile Include="CodeFirstApproach\Configuration\UserMap.cs" />
     <Compile Include="CodeFirstApproach\Configuration\UserProfileMap.cs" />
     <Compile Include="CodeFirstApproach\EFDbContext.cs" />
