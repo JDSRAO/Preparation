@@ -35,5 +35,10 @@ namespace CSharpSamples.ExtensionMethods
         {
             Console.WriteLine("Hai I am from an extension methods");
         }
+
+        public static void Dummy<T>(this List<T> test)
+        {
+            Console.WriteLine("Hai I am from an extension methods");
+        }
     }
 }
