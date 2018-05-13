@@ -1,4 +1,5 @@
 ﻿using CSharpSamples.CodeFirstApproach;
+using CSharpSamples.DSAndAlgorithms.BST;
 using CSharpSamples.DSAndAlgorithms.LinkedList;
 using CSharpSamples.ExtensionMethods;
 using CSharpSamples.RecursiveFunctions;
@@ -21,7 +22,9 @@ namespace CoreCSharp
                 Console.WriteLine("1. Method Extensions");
                 Console.WriteLine("2. EF code first approach");
                 Console.WriteLine("3. Generic functions and binary search");
-                Console.WriteLine("4. DS and algorithms");
+                Console.WriteLine("4. SLL");
+                Console.WriteLine("5. DLL");
+                Console.WriteLine("6. BST");
                 Console.Write("Enter your choice : ");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
@@ -36,7 +39,13 @@ namespace CoreCSharp
                         RecursiveFunctions();
                         break;
                     case 4:
-                        DBAndAlgorithms();
+                        SLL();
+                        break;
+                    case 5:
+                        DLL();
+                        break;
+                    case 6:
+                        BST();
                         break;
                     default:
                         break;
@@ -93,7 +102,7 @@ namespace CoreCSharp
 
         }
 
-        static void DBAndAlgorithms()
+        static void SLL()
         {
             Console.WriteLine("-- Singly Linked List --");
             SinglyLL<int> sll = new SinglyLL<int>();
@@ -109,13 +118,16 @@ namespace CoreCSharp
             item = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine(sll.Delete(item));
             sll.Print();
+        }
 
-
+        static void DLL()
+        {
+            int item;
             Console.WriteLine("-- Doubly Linked List --");
             DoublyLinkedList<int> dll = new DoublyLinkedList<int>();
             for (int i = 1; i <= 10; i++)
             {
-                dll.Add(i);
+                dll.Add(GenerateRandom());
             }
             dll.Print();
             Console.Write("Enter value to search: ");
@@ -125,6 +137,32 @@ namespace CoreCSharp
             item = Convert.ToInt32(Console.ReadLine());
             dll.Delete(item);
             dll.Print();
+        }
+
+        static void BST()
+        {
+            Console.WriteLine("-- BST --");
+            int item;
+            BST<int> bst = new BST<int>();
+            for (int i = 1; i <= 10; i++)
+            {
+                //bst.Add(GenerateRandom());
+                bst.Add(i);
+            }
+            bst.Print();
+            Console.Write("Enter value to search: ");
+            item = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Contains {0} : {1}", item, bst.Contains(item));
+        }
+
+        public static int GenerateRandom()
+        {
+            //if(this.GetType() ==  )
+            //{
+            //    return new Random().Next();
+            //}
+            var rand = new Random();
+            return rand.Next(1, 999);
         }
     }
 }
