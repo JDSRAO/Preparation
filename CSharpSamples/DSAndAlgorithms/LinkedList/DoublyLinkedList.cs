@@ -6,69 +6,74 @@ using System.Threading.Tasks;
 
 namespace CSharpSamples.DSAndAlgorithms.LinkedList
 {
-    public class SinglyLL<T> where T : struct
+    public class DoublyLinkedList<T> where T : struct
     {
-        private Node<T> Head { get; set; }
-        private Node<T> Tail { get; set; }
-        //public T this[int index] { get; set; }
-        public int Count => count;
+        private DllNode<T> Head { get; set; }
+
+        private DllNode<T> Tail { get; set; }
 
         private int count;
 
-        public SinglyLL()
+        public int Coount => count;
+
+        public DoublyLinkedList()
         {
-            Head = new Node<T>();
+            Head = null;
             Tail = Head;
             count = 0;
         }
 
         public void Add(T item)
         {
-            if(Equals(Head.Value, default(T)))
+            var node = new DllNode<T>(item);
+            if (count == 0)
             {
-                var node = new Node<T>(item);
-                Tail.Next = node;
-                Tail = node;
+                Head = node;
+                Tail = Head;
             }
             else
             {
-                Head.Value = item;
-                Head.Next = null;
+                Tail.Next = node;
+                node.Previous = Tail;
+                Tail = node;
             }
             count++;
         }
 
         public void Print()
         {
-            Node<T> node = Head;
+            var node = Head;
             while (node.Next != null)
             {
-                Console.WriteLine(node.Value);
+                Console.Write("{0},", node.Value);
                 if (node.Next == Tail)
                 {
-                    Console.WriteLine(Tail.Value);
+                    Console.Write("{0}", Tail.Value);
                 }
                 node = node.Next;
             }
-            
+            Console.WriteLine();
         }
 
         public bool Contains(T item)
         {
-            var currentNode = Head;
-            while (currentNode.Next != null)
+            var node = Head;
+            while (node.Next != null)
             {
-                if (Equals(currentNode.Value, item))
+                if (Equals(node.Value, item))
                 {
                     return true;
                 }
-                currentNode = currentNode.Next;
-            }
-            if (Equals(currentNode.Value, item))
-            {
-                return true;
-            }
 
+                if (node.Next == Tail)
+                {
+                    if (Equals(Tail.Value, item))
+                    {
+                        return true;
+                    }
+                }
+                node = node.Next;
+            }
             return false;
         }
 
@@ -79,12 +84,15 @@ namespace CSharpSamples.DSAndAlgorithms.LinkedList
             {
                 return false;
             }
-            else if (count == 1)
+            if (count == 1)
             {
-                Head.Value = default(T);
-                Tail = Head;
-                count--;
-                return true;
+                if (Equals(Head.Value, item))
+                {
+                    count--;
+                    Head = null;
+                    Tail = Head;
+                    return true;
+                }
             }
 
             while (node.Next != null)
@@ -93,8 +101,16 @@ namespace CSharpSamples.DSAndAlgorithms.LinkedList
                 {
                     count--;
                     var nextNode = node.Next;
-                    node.Value = nextNode.Value;
-                    node.Next = nextNode.Next;
+                    var previousNode = node.Previous;
+                    if (previousNode != null)
+                    {
+                        previousNode.Next = nextNode;
+                    }
+                    else
+                    {
+                        Head = nextNode;
+                    }
+
                     return true;
                 }
 
@@ -102,18 +118,19 @@ namespace CSharpSamples.DSAndAlgorithms.LinkedList
                 {
                     if (Equals(Tail.Value, item))
                     {
+                        count--;
                         node.Next = null;
                         Tail = node;
-                        count--;
                         return true;
                     }
                 }
 
                 node = node.Next;
             }
-
+            
             return false;
         }
+
 
         private static bool Equals(T item1, T item2)
         {
@@ -125,21 +142,26 @@ namespace CSharpSamples.DSAndAlgorithms.LinkedList
         }
     }
 
-    public class Node<T> where T : struct
+    public class DllNode<T> where T : struct
     {
-        public T Value { get; set; }
-        public Node<T> Next { get; set; }
+        public DllNode<T> Previous { get; set; }
 
-        public Node(T item)
+        public DllNode<T> Next { get; set; }
+
+        public T Value { get; set; }
+
+        public DllNode()
         {
-            this.Value = item;
+            Previous = null;
             Next = null;
+            Value = default(T);
         }
 
-        public Node()
+        public DllNode(T item)
         {
-            this.Value = default(T);
+            Value = item;
             Next = null;
+            Previous = null;
         }
     }
 }

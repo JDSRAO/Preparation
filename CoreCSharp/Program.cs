@@ -14,12 +14,36 @@ namespace CoreCSharp
     {
         static void Main(string[] args)
         {
-            MethodExtensions();
-            //EFCodeFirstApproach();
-            RecursiveFunctions();
-            DBAndAlgorithms();
-            Console.WriteLine("-- End of Program --");
-            Console.ReadLine();
+            bool runProgram = true;
+            while (runProgram)
+            {
+                Console.WriteLine("-- Start of Program --");
+                Console.WriteLine("1. Method Extensions");
+                Console.WriteLine("2. EF code first approach");
+                Console.WriteLine("3. Generic functions and binary search");
+                Console.WriteLine("4. DS and algorithms");
+                Console.Write("Enter your choice : ");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        MethodExtensions();
+                        break;
+                    case 2:
+                        EFCodeFirstApproach();
+                        break;
+                    case 3:
+                        RecursiveFunctions();
+                        break;
+                    case 4:
+                        DBAndAlgorithms();
+                        break;
+                    default:
+                        break;
+                }
+                Console.WriteLine("-- End of Program --");
+                Console.WriteLine("  ");
+            }
         }
 
         static void MethodExtensions()
@@ -71,19 +95,36 @@ namespace CoreCSharp
 
         static void DBAndAlgorithms()
         {
+            Console.WriteLine("-- Singly Linked List --");
             SinglyLL<int> sll = new SinglyLL<int>();
             for (int i = 1; i <= 10; i++)
             {
                 sll.Add(i);
             }
-
-
-
+            sll.Print();
+            Console.Write("Enter value to search: ");
+            int item = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(sll.Contains(item));
+            Console.Write("Enter value to delete: ");
+            item = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(sll.Delete(item));
             sll.Print();
 
-            Console.WriteLine(sll.Contains(101));
-            Console.WriteLine(sll.Delete(10));
-            sll.Print();
+
+            Console.WriteLine("-- Doubly Linked List --");
+            DoublyLinkedList<int> dll = new DoublyLinkedList<int>();
+            for (int i = 1; i <= 10; i++)
+            {
+                dll.Add(i);
+            }
+            dll.Print();
+            Console.Write("Enter value to search: ");
+            item = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Contains {0} : {1}", item, dll.Contains(item));
+            Console.Write("Enter value to delete: ");
+            item = Convert.ToInt32(Console.ReadLine());
+            dll.Delete(item);
+            dll.Print();
         }
     }
 }
