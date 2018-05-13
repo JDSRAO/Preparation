@@ -1,4 +1,5 @@
 ﻿using CSharpSamples.CodeFirstApproach;
+using CSharpSamples.DSAndAlgorithms.LinkedList;
 using CSharpSamples.ExtensionMethods;
 using CSharpSamples.RecursiveFunctions;
 using System;
@@ -16,6 +17,8 @@ namespace CoreCSharp
             MethodExtensions();
             //EFCodeFirstApproach();
             RecursiveFunctions();
+            DBAndAlgorithms();
+            Console.WriteLine("-- End of Program --");
             Console.ReadLine();
         }
 
@@ -55,10 +58,8 @@ namespace CoreCSharp
             {
                 set.Add(i + 1);
             }
-            //set.GetSubsets();
-            //Console.WriteLine("Index of {0} is {1}", valueToFind, set.BinaryASearch(valueToFind));
-
-
+            set.GetSubsets();
+            Console.WriteLine("Index of {0} is {1}", valueToFind, set.BinaryASearch(valueToFind));
             
             string namesString = "KJDS SRINIVASA RAOa";
             char nameToFind = 'a';
@@ -66,6 +67,23 @@ namespace CoreCSharp
 
             Console.WriteLine("Index of {0} is {1}", nameToFind.ToString(), namesString.ToCharArray().ToList().BinaryASearch(nameToFind));
 
+        }
+
+        static void DBAndAlgorithms()
+        {
+            SinglyLL<int> sll = new SinglyLL<int>();
+            for (int i = 1; i <= 10; i++)
+            {
+                sll.Add(i);
+            }
+
+
+
+            sll.Print();
+
+            Console.WriteLine(sll.Contains(101));
+            Console.WriteLine(sll.Delete(10));
+            sll.Print();
         }
     }
 }

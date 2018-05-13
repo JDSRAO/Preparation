@@ -56,6 +56,7 @@
     <Compile Include="CodeFirstApproach\Entities\BaseEntity.cs" />
     <Compile Include="CodeFirstApproach\Entities\User.cs" />
     <Compile Include="CodeFirstApproach\Entities\UserProfile.cs" />
+    <Compile Include="DSAndAlgorithms\LinkedList\SinglyLL.cs" />
     <Compile Include="ExtensionMethods\Employee.cs" />
     <Compile Include="ExtensionMethods\ITest.cs" />
     <Compile Include="ExtensionMethods\MyExtensions.cs" />
