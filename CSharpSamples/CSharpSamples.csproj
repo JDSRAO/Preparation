@@ -56,6 +56,7 @@
     <Compile Include="CodeFirstApproach\Entities\BaseEntity.cs" />
     <Compile Include="CodeFirstApproach\Entities\User.cs" />
     <Compile Include="CodeFirstApproach\Entities\UserProfile.cs" />
+    <Compile Include="DSAndAlgorithms\Algorithms\SortingAlgorithms.cs" />
     <Compile Include="DSAndAlgorithms\BST\BST.cs" />
     <Compile Include="DSAndAlgorithms\LinkedList\DoublyLinkedList.cs" />
     <Compile Include="DSAndAlgorithms\LinkedList\SinglyLL.cs" />
