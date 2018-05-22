@@ -40,5 +40,27 @@ namespace CSharpSamples.ExtensionMethods
         {
             Console.WriteLine("Hai I am from an extension methods");
         }
+
+        public static void Print<T>(this List<T> list) where T : struct
+        {
+            if (list != null)
+            {
+                Console.Write("[ ");
+                for (int i = 0; i < list.Count; i++)
+                {
+                    T item = list[i];
+                    if (i != (list.Count - 1))
+                    {
+                        Console.Write($"{item}, ");
+                    }
+                    else
+                    {
+                        Console.Write($"{item} ]");
+                    }
+
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }

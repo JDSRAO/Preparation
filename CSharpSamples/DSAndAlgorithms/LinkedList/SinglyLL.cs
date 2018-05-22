@@ -43,14 +43,15 @@ namespace CSharpSamples.DSAndAlgorithms.LinkedList
             Node<T> node = Head;
             while (node.Next != null)
             {
-                Console.WriteLine(node.Value);
+                Console.Write($"{node.Value}, ");
                 if (node.Next == Tail)
                 {
-                    Console.WriteLine(Tail.Value);
+                    Console.Write($"{Tail.Value} ");
                 }
                 node = node.Next;
             }
-            
+
+            Console.WriteLine();
         }
 
         public bool Contains(T item)

@@ -1,7 +1,11 @@
-﻿using CSharpSamples.CodeFirstApproach;
+﻿using CSharpSamples;
+using CSharpSamples.Attributes;
+using CSharpSamples.CodeFirstApproach;
+using CSharpSamples.Delegate;
 using CSharpSamples.DSAndAlgorithms.BST;
 using CSharpSamples.DSAndAlgorithms.LinkedList;
 using CSharpSamples.ExtensionMethods;
+using CSharpSamples.Operators;
 using CSharpSamples.RecursiveFunctions;
 using System;
 using System.Collections.Generic;
@@ -25,144 +29,64 @@ namespace CoreCSharp
                 Console.WriteLine("4. SLL");
                 Console.WriteLine("5. DLL");
                 Console.WriteLine("6. BST");
+                Console.WriteLine("7. Operator Overloading");
+                Console.WriteLine("8. Delegates");
+                Console.WriteLine("9. Attributes");
                 Console.Write("Enter your choice : ");
                 int choice = Convert.ToInt32(Console.ReadLine());
+                IProgram program;
                 switch (choice)
                 {
                     case 1:
-                        MethodExtensions();
+                        //MethodExtensions
+                        program = new MethodExtensionProgram();
                         break;
                     case 2:
-                        EFCodeFirstApproach();
+                        //EFCodeFirstApproach(); //EFProgram
+                        program = new EFProgram();
                         break;
                     case 3:
-                        RecursiveFunctions();
+                        //RecursiveFunctions(); // RFProgram
+                        program = new RFProgram();
                         break;
                     case 4:
-                        SLL();
+                        //SLL(); //SLLProgram
+                        program = new SLLProgram();
                         break;
                     case 5:
-                        DLL();
+                        //DLL();
+                        program = new DLLProgram();
                         break;
                     case 6:
-                        BST();
+                        //BST();
+                        program = new BSTProgram();
+                        break;
+                    case 7:
+                        program = new OperatorProgram();
+                        break;
+                    case 8:
+                        //Delegates Program
+                        program = new DelegateProgram();
+                        break;
+                    case 9:
+                        // Attributes Program
+                        program = new AttributeProgram();
                         break;
                     default:
+                        //Exit the application
+                        Environment.Exit(-1);
+                        program = null;
                         break;
                 }
+
+                if (program != null)
+                {
+                    program.Run();
+                }
+                
                 Console.WriteLine("-- End of Program --");
                 Console.WriteLine("  ");
             }
-        }
-
-        static void MethodExtensions()
-        {
-            Employee emp = new Employee();
-            emp.Name = "Hai I am an string";
-            Console.WriteLine(emp.ToString());
-            Console.WriteLine("Length: " + emp.StringLength());
-
-            string str = "Hai I am an string";
-            Console.WriteLine(str);
-            Console.WriteLine("Spaces: " + str.Spaces());
-
-            ITest test = new Test();
-            test.Dummy();
-
-            List<int> set = new List<int>();
-            set.Dummy<int>();
-        }
-
-        static void EFCodeFirstApproach()
-        {
-            using (var context = new EFDbContext())
-            {
-                //context.Database.sq
-                context.Database.Delete();
-                context.Database.Create();
-            }
-        }
-
-        static void RecursiveFunctions()
-        {
-            List<int> set = new List<int>();
-            int valueToFind = 8;
-            for (int i = 0; i < 10; i++)
-            {
-                set.Add(i + 1);
-            }
-            set.GetSubsets();
-            Console.WriteLine("Index of {0} is {1}", valueToFind, set.BinaryASearch(valueToFind));
-            
-            string namesString = "KJDS SRINIVASA RAOa";
-            char nameToFind = 'a';
-            namesString.ToCharArray().ToList();
-
-            Console.WriteLine("Index of {0} is {1}", nameToFind.ToString(), namesString.ToCharArray().ToList().BinaryASearch(nameToFind));
-
-        }
-
-        static void SLL()
-        {
-            Console.WriteLine("-- Singly Linked List --");
-            SinglyLL<int> sll = new SinglyLL<int>();
-            for (int i = 1; i <= 10; i++)
-            {
-                sll.Add(i);
-            }
-            sll.Print();
-            Console.Write("Enter value to search: ");
-            int item = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(sll.Contains(item));
-            Console.Write("Enter value to delete: ");
-            item = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(sll.Delete(item));
-            sll.Print();
-        }
-
-        static void DLL()
-        {
-            int item;
-            Console.WriteLine("-- Doubly Linked List --");
-            DoublyLinkedList<int> dll = new DoublyLinkedList<int>();
-            for (int i = 1; i <= 10; i++)
-            {
-                dll.Add(GenerateRandom());
-            }
-            dll.Print();
-            Console.Write("Enter value to search: ");
-            item = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Contains {0} : {1}", item, dll.Contains(item));
-            Console.Write("Enter value to delete: ");
-            item = Convert.ToInt32(Console.ReadLine());
-            dll.Delete(item);
-            dll.Print();
-        }
-
-        static void BST()
-        {
-            Console.WriteLine("-- BST --");
-            int item;
-            BST<int> bst = new BST<int>();
-            for (int i = 1; i <= 10; i++)
-            {
-                //bst.Add(GenerateRandom());
-                bst.Add(i);
-            }
-            bst.Print();
-            Console.Write("Enter value to search: ");
-            item = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Contains {0} : {1}", item, bst.Contains(item));
-        }
-
-        public static int GenerateRandom()
-        {
-            //if(this.GetType() ==  )
-            //{
-            //    return new Random().Next();
-            //}
-            var rand = new Random();
-            return rand.Next(1, 999);
         }
     }
 }
