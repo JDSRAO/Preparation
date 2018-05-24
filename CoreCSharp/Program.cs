@@ -4,6 +4,7 @@ using CSharpSamples.CodeFirstApproach;
 using CSharpSamples.Delegate;
 using CSharpSamples.DSAndAlgorithms.BST;
 using CSharpSamples.DSAndAlgorithms.LinkedList;
+using CSharpSamples.EventDrivenArchitecture;
 using CSharpSamples.ExtensionMethods;
 using CSharpSamples.Operators;
 using CSharpSamples.RecursiveFunctions;
@@ -32,6 +33,7 @@ namespace CoreCSharp
                 Console.WriteLine("7. Operator Overloading");
                 Console.WriteLine("8. Delegates");
                 Console.WriteLine("9. Attributes");
+                Console.WriteLine("9. Event Driven Architecture");
                 Console.Write("Enter your choice : ");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 IProgram program;
@@ -70,7 +72,11 @@ namespace CoreCSharp
                         break;
                     case 9:
                         // Attributes Program
-                        program = new AttributeProgram();
+                        program = new AttributeProgram(); 
+                        break;
+                    case 10:
+                        // Event Driven Architecture Program
+                        program = new EDAProgram(); 
                         break;
                     default:
                         //Exit the application
@@ -79,10 +85,7 @@ namespace CoreCSharp
                         break;
                 }
 
-                if (program != null)
-                {
-                    program.Run();
-                }
+                program?.Run();
                 
                 Console.WriteLine("-- End of Program --");
                 Console.WriteLine("  ");

@@ -15,6 +15,7 @@ namespace CSharpSamples.ExtensionMethods
             Console.WriteLine(emp.ToString());
             Console.WriteLine("Length: " + emp.StringLength());
 
+            var e = new Employee(Departments.IT);
             string str = "Hai I am an string";
             Console.WriteLine(str);
             Console.WriteLine("Spaces: " + str.Spaces());
