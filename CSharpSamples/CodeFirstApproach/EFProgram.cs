@@ -8,14 +8,20 @@ namespace CSharpSamples.CodeFirstApproach
 {
     public class EFProgram : IProgram
     {
+        private object obj = new Object();
         public void Run()
         {
-            using (var context = new EFDbContext())
+            Task.Run(() =>
             {
-                //context.Database.sq
-                context.Database.Delete();
-                context.Database.Create();
-            }
+                lock (obj)
+                {
+                    using (var context = new EFDbContext())
+                    {
+                        context.Database.Delete();
+                        context.Database.Create();
+                    }
+                }
+            });
         }
     }
 }

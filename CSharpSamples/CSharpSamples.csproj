@@ -61,6 +61,8 @@
     <Compile Include="CodeFirstApproach\Entities\UserProfile.cs" />
     <Compile Include="Delegate\DelegateProgram.cs" />
     <Compile Include="Delegate\DelegateTest.cs" />
+    <Compile Include="DSAndAlgorithms\Algorithms\AlgorithmProgram.cs" />
+    <Compile Include="DSAndAlgorithms\Algorithms\SearchingAlgorithms.cs" />
     <Compile Include="DSAndAlgorithms\Algorithms\SortingAlgorithms.cs" />
     <Compile Include="DSAndAlgorithms\BST\BST.cs" />
     <Compile Include="DSAndAlgorithms\BST\BSTProgram.cs" />
@@ -77,6 +79,11 @@
     <Compile Include="ExtensionMethods\MyExtensions.cs" />
     <Compile Include="ExtensionMethods\Test.cs" />
     <Compile Include="IProgram.cs" />
+    <Compile Include="LINQ\CompositeJoinQuery.cs" />
+    <Compile Include="LINQ\LeftJoinQuery.cs" />
+    <Compile Include="LINQ\LinqJoins.cs" />
+    <Compile Include="LINQ\LINQProgram.cs" />
+    <Compile Include="LINQ\StudentData.cs" />
     <Compile Include="Operators\OperatorProgram.cs" />
     <Compile Include="Operators\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
