@@ -22,8 +22,7 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                     T item2 = list[j];
                     if (Compare(item1, item2) > 0)
                     {
-                        int index = list.FindIndex(x => x.Equals(item1));
-                        list.Swap(index,j);
+                        list.Swap(i,j);
                     }
                 }
             }
@@ -31,13 +30,16 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
 
         public static void BubbleSort<T>(this List<T> list) where T : struct, IComparable<T>
         {
-            for (int i = 0; i < list.Count; i++)
+            if (ReferenceEquals(list, null) && list.Any())
             {
-                for (int j = 0; j < list.Count - i - 1; j++)
+                for (int i = 0; i < list.Count; i++)
                 {
-                    if (Compare(list[j], list[j + 1]) > 0)
+                    for (int j = 0; j < list.Count - i - 1; j++)
                     {
-                        list.Swap(j, j+1);
+                        if (Compare(list[j], list[j + 1]) > 0)
+                        {
+                            list.Swap(j, j + 1);
+                        }
                     }
                 }
             }
@@ -68,9 +70,9 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
 
         public static void MergeSort<T>(this List<T> list) where T : IComparable<T>
         {
-            if (!ReferenceEquals(list, null))
+            if (!ReferenceEquals(list, null) && list.Any())
             {
-
+                list.MergeNSort(0, list.Count - 1);
             }
         }
 
@@ -142,6 +144,31 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
             }
         }
 
+        public static void ShellSort<T>(this List<T> list) where T : struct, IComparable<T>
+        {
+            if (ReferenceEquals(list, null) && list.Any())
+            {
+                int increment = list.Count / 2;
+                while (increment != 0)
+                {
+                    int current = increment;
+                    while (current < list.Count)
+                    {
+                        T hold = list[current];
+                        int i = current - increment;
+                        while (i >= 0 && Compare(hold, list[i]) < 0)
+                        {
+                            list[i + increment] = list[i];
+                            i -= increment;
+                        }
+                        list[i + increment] = hold;
+                        current = current + 1;
+                    }
+                    increment /= 2;
+                }
+            }
+        }
+
         public static void Slide<T>(this List<T> list, T item, int min, int max) where T : IComparable<T>
         {
             if (min < max && (list.Count > max))
@@ -187,6 +214,7 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
         }
 
         # region Helper Methods
+
         private static void Swap<T>(ref T item1, ref T item2)
         {
             T temp = item1;
@@ -194,7 +222,7 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
             item2 = temp;
         }
 
-        private static int Compare<T>(T item1, T item2) where T : IComparable<T>
+        private static int Compare<T>(T item1, T item2) //where T : IComparable<T>
         {
             return Comparer<T>.Default.Compare(item1, item2);
         }
@@ -208,6 +236,70 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                 list[max] = temp;
             }
         }
+
+        private static void MergeNSort<TSource>(this List<TSource> list, int min, int max)
+        {
+            if (min < max)
+            {
+                int mid = (min + max) / 2;
+                list.MergeNSort(min, mid);
+                list.MergeNSort(mid + 1, max);
+                Merge(list, min, mid, max);
+            }
+        }
+
+        private static void Merge<T>(this List<T> list, int min, int mid, int max)
+        {
+            List<T> left = list.GetRange(min, mid - min + 1);
+            List<T> right = list.GetRange(mid + 1, max - mid);
+
+            int j = 0, i = 0, k = mid;
+            //while (i < left.Count && j < right.Count)
+            //{
+            //    if (Compare(left[i], right[j]) < 0)
+            //    {
+            //        list[k] = left[i];
+            //        i++;
+            //    }
+            //    else
+            //    {
+            //        list[k] = right[j];
+            //        j++;
+            //    }
+
+            //    k++;
+            //}
+
+            for (i = 0, j = 0; i < left.Count && j < right.Count; i++, j++)
+            {
+                if (Compare(left[i], right[j]) < 0)
+                {
+                    list[k] = left[i];
+                }
+                else
+                {
+                    list[k] = right[j];
+                }
+
+                k++;
+            }
+
+            while (i < left.Count)
+            {
+                list[k] = left[i];
+                k++;
+                i++;
+            }
+
+            while (j < right.Count)
+            {
+                list[k] = right[j];
+                k++;
+                j++;
+            }
+
+        }
+
         # endregion 
     }
 }

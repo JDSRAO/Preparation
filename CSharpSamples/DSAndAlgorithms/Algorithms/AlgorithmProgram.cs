@@ -22,7 +22,8 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
             Console.WriteLine("Before Sorting");
             numbers.Print();
             //numbers.SimpleSort();
-            //numbers.BubbleSort();
+            //numbers.MergeSort();
+            numbers.BubbleSort();
             //numbers.QuickSort();
             //numbers.InsertionSort();
             //numbers.InsertionSortBookAlgo();
