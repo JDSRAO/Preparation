@@ -74,6 +74,15 @@ namespace CSharpSamples.LINQ
                              where student.ExamScores[exam] > score
                              select new { Name = student.FirstName, Score = student.ExamScores[exam] };
 
+            var highScoress = from student in students
+                             group student by  student.Year into studentGrp
+                             select new
+                             {
+                                 Name = studentGrp.Key,
+                                 Score = studentGrp.Where( x=> x.Year.Equals(studentGrp.Key)).Select( a => a),
+                                 test  = studentGrp.Select(x =>  x.FirstName ).FirstOrDefault()
+                             };
+
             foreach (var item in highScores)
             {
                 Console.WriteLine($"{item.Name,-15}{item.Score}");
