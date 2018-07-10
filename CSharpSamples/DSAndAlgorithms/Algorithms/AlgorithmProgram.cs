@@ -31,16 +31,19 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                12
             };
             Console.WriteLine("Before Sorting");
-            numbers2.Print();
+            numbers.Print();
             //numbers.SimpleSort();
+            //numbers.SimpleSortOptimised();
             //numbers.MergeSort();
-            numbers2.BubbleSort();
+            //numbers.BubbleSort();
+            numbers.BubbleSortOptimised();
             //numbers.QuickSort();
             //numbers.InsertionSort();
             //numbers.InsertionSortBookAlgo();
+            //numbers2.ShellSort();
             //numbers.Slide(1243, 0, 3);
             Console.WriteLine("After bubble Sorting");
-            numbers2.Print();
+            numbers.Print();
 
             List<string> stringList = new List<string>()
             {

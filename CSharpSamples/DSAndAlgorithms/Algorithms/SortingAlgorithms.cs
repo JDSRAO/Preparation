@@ -14,11 +14,13 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
     {
         public static void SimpleSort<T>(this List<T> list) where T : struct, IComparable<T>
         {
+            int itrs = 0;
             for (int i = 0; i < list.Count; i++)
             {
                 T item1 = list[i];
                 for (int j = 0; j < list.Count; j++)
                 {
+                    itrs++;
                     T item2 = list[j];
                     if (Compare(item1, item2) > 0)
                     {
@@ -26,6 +28,26 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                     }
                 }
             }
+            Console.WriteLine(itrs);
+        }
+
+        public static void SimpleSortOptimised<T>(this List<T> list) where T : struct, IComparable<T>
+        {
+            int itrs = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                T item1 = list[i];
+                for (int j = i; j < list.Count; j++)
+                {
+                    itrs++;
+                    T item2 = list[j];
+                    if (Compare(list[i], list[j]) > 0)
+                    {
+                        list.Swap(i, j);
+                    }
+                }
+            }
+            Console.WriteLine(itrs);
         }
 
         public static void BubbleSort<T>(this List<T> list) where T : struct, IComparable<T>
@@ -79,21 +101,18 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
 
         public static void QuickSort<T>(this List<T> list) where T : struct, IComparable<T>
         {
-            if (!ReferenceEquals(list, null))
+            if (!ReferenceEquals(list, null) && list.Any())
             {
-                if (list.Any())
+                for (int i = 0; i < list.Count; i++)
                 {
-                    for (int i = 0; i < list.Count; i++)
+                    T item1 = list[i];
+                    for (int j = i; j < list.Count; j++)
                     {
-                        T item1 = list[i];
-                        for (int j = i; j < list.Count; j++)
+                        T item2 = list[j];
+                        if (Compare(item1, item2) > 0)
                         {
-                            T item2 = list[j];
-                            if (Compare(item1, item2) > 0)
-                            {
-                                int index = list.FindIndex(x => x.Equals(item1));
-                                list.Swap(index, j);
-                            }
+                            int index = list.FindIndex(x => x.Equals(item1));
+                            list.Swap(index, j);
                         }
                     }
                 }
