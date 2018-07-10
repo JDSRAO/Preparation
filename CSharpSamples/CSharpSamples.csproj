@@ -84,6 +84,10 @@
     <Compile Include="LINQ\LinqJoins.cs" />
     <Compile Include="LINQ\LINQProgram.cs" />
     <Compile Include="LINQ\StudentData.cs" />
+    <Compile Include="OOP\Employee.cs" />
+    <Compile Include="OOP\HREmoployee.cs" />
+    <Compile Include="OOP\OOPProgram.cs" />
+    <Compile Include="OOP\Person.cs" />
     <Compile Include="Operators\OperatorProgram.cs" />
     <Compile Include="Operators\Employee.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -94,7 +98,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

@@ -9,6 +9,7 @@ using CSharpSamples.EventDrivenArchitecture;
 using CSharpSamples.ExtensionMethods;
 using CSharpSamples.LINQ;
 using CSharpSamples.Operators;
+using CSharpSamples.OOP;
 using CSharpSamples.RecursiveFunctions;
 using System;
 using System.Collections.Generic;
@@ -90,6 +91,10 @@ namespace CoreCSharp
                     case 12:
                         // Algorithms Program
                         program = new AlgorithmProgram(); 
+                        break;
+                    case 13:
+                        // OOP Program
+                        program = new OOPProgram();
                         break;
                     default:
                         //Exit the application
