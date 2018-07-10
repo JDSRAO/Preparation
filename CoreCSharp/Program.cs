@@ -39,6 +39,7 @@ namespace CoreCSharp
                 Console.WriteLine("10. Event Driven Architecture");
                 Console.WriteLine("11. LINQ");
                 Console.WriteLine("12. Algorithms");
+                Console.WriteLine("13. OOP Concepts");
                 Console.Write("Enter your choice : ");
                 int choice = 0;
                 int.TryParse(Console.ReadLine(), out choice);

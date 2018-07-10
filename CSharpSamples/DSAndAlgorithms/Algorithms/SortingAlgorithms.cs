@@ -30,20 +30,52 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
 
         public static void BubbleSort<T>(this List<T> list) where T : struct, IComparable<T>
         {
-            if (ReferenceEquals(list, null) && list.Any())
+            if (!ReferenceEquals(list, null) && list.Any())
             {
+                int itrs = 0;
+                int n = list.Count;
+                bool exchanged = true;
+                int compares = list.Count - 1;
+                while (exchanged && compares > 0)
+                {
+                    exchanged = false;
+                    for (int i = 0; i < n; i++)
+                    {
+                        if ((i != n - 1) && Compare(list[i], list[i + 1]) > 0)
+                        {
+                            list.Swap(i, i + 1);
+                            exchanged = true;
+                        }
+                        itrs++;
+                    }
+                    compares--;
+                }
+
+                Console.WriteLine(itrs);
+            }
+        }
+
+        public static void BubbleSortOptimised<T>(this List<T> list) where T : struct, IComparable<T>
+        {
+            if (!ReferenceEquals(list, null) && list.Any())
+            {
+                int itrs = 0;
                 for (int i = 0; i < list.Count; i++)
                 {
                     for (int j = 0; j < list.Count - i - 1; j++)
                     {
+                        itrs++;
                         if (Compare(list[j], list[j + 1]) > 0)
                         {
                             list.Swap(j, j + 1);
                         }
                     }
                 }
+                Console.WriteLine(itrs);
             }
         }
+
+
 
         public static void QuickSort<T>(this List<T> list) where T : struct, IComparable<T>
         {
