@@ -31,16 +31,14 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
             Console.WriteLine(itrs);
         }
 
-        public static void SimpleSortOptimised<T>(this List<T> list) where T : struct, IComparable<T>
+        public static List<T> SimpleSortOptimised<T>(this List<T> list) where T : struct, IComparable<T>
         {
             int itrs = 0;
             for (int i = 0; i < list.Count; i++)
             {
-                T item1 = list[i];
                 for (int j = i; j < list.Count; j++)
                 {
                     itrs++;
-                    T item2 = list[j];
                     if (Compare(list[i], list[j]) > 0)
                     {
                         list.Swap(i, j);
@@ -48,6 +46,7 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                 }
             }
             Console.WriteLine(itrs);
+            return list;
         }
 
         public static void BubbleSort<T>(this List<T> list) where T : struct, IComparable<T>
@@ -97,25 +96,13 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
             }
         }
 
-
-
         public static void QuickSort<T>(this List<T> list) where T : struct, IComparable<T>
         {
             if (!ReferenceEquals(list, null) && list.Any())
             {
-                for (int i = 0; i < list.Count; i++)
-                {
-                    T item1 = list[i];
-                    for (int j = i; j < list.Count; j++)
-                    {
-                        T item2 = list[j];
-                        if (Compare(item1, item2) > 0)
-                        {
-                            int index = list.FindIndex(x => x.Equals(item1));
-                            list.Swap(index, j);
-                        }
-                    }
-                }
+                int itrs = 0;                
+                list.QuickSort(0, list.Count - 1);
+                Console.WriteLine(itrs);
             }
         }
 
@@ -349,6 +336,37 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                 j++;
             }
 
+        }
+
+        private static void QuickSort<T>(this List<T> list, int min, int max)
+        {
+            if (min < max)
+            {
+                T pivot = list[min];
+                int pivotIndex = min + 1;
+                for (int i = min; i <= max; i++)
+                {
+                    if (Compare(pivot, list[i]) > 0)
+                    {
+                        list.Swap(pivotIndex, i);
+                        pivotIndex++;
+                    }
+                }
+
+                list.Swap(min, pivotIndex-1);
+                list.QuickSort(min, pivotIndex - 1);
+                list.QuickSort(pivotIndex + 1, max);
+            }
+
+            //if (min < max)
+            //{
+            //    if (Compare(list[min], list[max]) > 0)
+            //    {
+            //        list.Swap(max, min);
+            //    }
+
+            //    list.QuickSort(min + 1, max - 1);
+            //}
         }
 
         # endregion 

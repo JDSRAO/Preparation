@@ -18,7 +18,7 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                 24,
                 123,
                 2
-            };
+            };            
 
             List<int> numbers2 = new List<int>()
             {
@@ -31,19 +31,20 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                12
             };
             Console.WriteLine("Before Sorting");
-            numbers.Print();
+            numbers2.Print();
+            numbers.Contains(2);
             //numbers.SimpleSort();
             //numbers.SimpleSortOptimised();
             //numbers.MergeSort();
             //numbers.BubbleSort();
-            numbers.BubbleSortOptimised();
-            //numbers.QuickSort();
+            //numbers.BubbleSortOptimised();
+            numbers2.QuickSort();
             //numbers.InsertionSort();
             //numbers.InsertionSortBookAlgo();
             //numbers2.ShellSort();
             //numbers.Slide(1243, 0, 3);
             Console.WriteLine("After bubble Sorting");
-            numbers.Print();
+            numbers2.Print();
 
             List<string> stringList = new List<string>()
             {
@@ -59,5 +60,6 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
             //stringList.BubbleSort();
             //stringList.Print();
         }
+
     }
 }
