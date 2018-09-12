@@ -1,17 +1,18 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CSharpSamples.DSAndAlgorithms.Queue;
+﻿using CSharpSamples.DSAndAlgorithms.Queue;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit;
+using NUnit.Framework;
 
 namespace CSharpSamples.DSAndAlgorithms.Queue.Tests
 {
-    [TestClass()]
+    [TestFixture]
     public class QueueTests
     {
-        [TestMethod()]
+        [Test()]
         public void EnqueueTest()
         {
             Queue<int> queue = new Queue<int>();
@@ -19,7 +20,7 @@ namespace CSharpSamples.DSAndAlgorithms.Queue.Tests
             Assert.AreEqual(1, queue.Count);
         }
 
-        [TestMethod()]
+        [Test()]
         public void DequeueTest()
         {
             Queue<int> queue = new Queue<int>();
@@ -29,7 +30,7 @@ namespace CSharpSamples.DSAndAlgorithms.Queue.Tests
             Assert.AreEqual(1, queue.Count);
         }
 
-        [TestMethod()]
+        [Test()]
         public void PeekTest()
         {
             Queue<int> queue = new Queue<int>();

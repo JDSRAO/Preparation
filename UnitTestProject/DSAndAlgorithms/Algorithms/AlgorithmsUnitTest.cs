@@ -1,17 +1,18 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CSharpSamples.DSAndAlgorithms.Algorithms;
+﻿using CSharpSamples.DSAndAlgorithms.Algorithms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
+using NUnit;
 
 namespace CSharpSamples.DSAndAlgorithms.Algorithms.Tests
 {
-    [TestClass()]
+    [TestFixture]
     public class AlgorithmsUnitTest
     {
-        [TestMethod()]
+        [Test]
         public void SimpleSortOptimisedTest()
         {
             Assert.Fail();
