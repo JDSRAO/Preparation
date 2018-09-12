@@ -56,7 +56,7 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                 int itrs = 0;
                 int n = list.Count;
                 bool exchanged = true;
-                int compares = list.Count - 1;
+                int compares = n - 1;
                 while (exchanged && compares > 0)
                 {
                     exchanged = false;

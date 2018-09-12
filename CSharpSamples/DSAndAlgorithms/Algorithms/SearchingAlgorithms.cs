@@ -8,6 +8,13 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
 {
     public static class SearchingAlgorithms
     {
+        /// <summary>
+        /// Binary search algorithm
+        /// </summary>
+        /// <typeparam name="T">Data type</typeparam>
+        /// <param name="data">Current list object</param>
+        /// <param name="item">object to find</param>
+        /// <returns>Index of the item in the list or -1 if not found</returns>
         public static int BinaryASearch<T>(this List<T> data, T item) where T : struct
         {
             int index = -1;

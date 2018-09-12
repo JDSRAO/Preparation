@@ -8,13 +8,13 @@ namespace CSharpSamples.DSAndAlgorithms.LinkedList
 {
     public class DoublyLinkedList<T> where T : struct
     {
-        private DllNode<T> Head { get; set; }
+        public DllNode<T> Head { get; set; }
 
         private DllNode<T> Tail { get; set; }
 
         private int count;
 
-        public int Coount => count;
+        public int Count => count;
 
         public DoublyLinkedList()
         {
