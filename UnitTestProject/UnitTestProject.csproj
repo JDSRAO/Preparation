@@ -59,7 +59,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DSAndAlgorithms\Algorithms\AlgorithmsUnitTest.cs" />
+    <Compile Include="DSAndAlgorithms\Algorithms\SortingAlgorithmsSelectionSortTests.cs" />
     <Compile Include="DSAndAlgorithms\Queue\QueueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

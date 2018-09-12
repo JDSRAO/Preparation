@@ -12,6 +12,33 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
     /// </summary>
     public static class SortingAlgorithms
     {
+
+        public static List<T> SelectionSort<T>(this List<T> list)
+        {
+            if(ReferenceEquals(list, null))
+            {
+                throw new ArgumentNullException();
+            }
+            else if(list.Any())
+            {
+                for (int i = 0; i < list.Count; i++)
+                {
+                    T min = list[i];
+                    int index = i;
+                    for (int j = i + 1; j < list.Count; j++)
+                    {
+                        if(Compare(min, list[j]) > 0)
+                        {
+                            min = list[j];
+                            index = j;
+                        }
+                    }
+                    list.Swap(i, index);
+                }
+            }
+            return list;
+        }
+
         public static void SimpleSort<T>(this List<T> list) where T : struct, IComparable<T>
         {
             int itrs = 0;
