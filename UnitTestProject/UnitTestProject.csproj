@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DSAndAlgorithms\Algorithms\SortingAlgorithmsSelectionSortTests.cs" />
+    <Compile Include="DSAndAlgorithms\Algorithms\SortingAlgorithmsSimpleSortTests.cs" />
     <Compile Include="DSAndAlgorithms\Queue\QueueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

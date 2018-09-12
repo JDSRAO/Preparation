@@ -39,7 +39,7 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
             return list;
         }
 
-        public static void SimpleSort<T>(this List<T> list) where T : struct, IComparable<T>
+        public static List<T> SimpleSort<T>(this List<T> list) where T : struct, IComparable<T>
         {
             int itrs = 0;
             for (int i = 0; i < list.Count; i++)
@@ -56,6 +56,7 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                 }
             }
             Console.WriteLine(itrs);
+            return list;
         }
 
         public static List<T> SimpleSortOptimised<T>(this List<T> list) where T : struct, IComparable<T>
