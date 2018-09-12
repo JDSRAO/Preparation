@@ -26,6 +26,7 @@ namespace CoreCSharp
             bool runProgram = true;
             while (runProgram)
             {
+                Console.Clear();
                 Console.WriteLine("-- Start of Program --");
                 Console.WriteLine("1. Method Extensions");
                 Console.WriteLine("2. EF code first approach");
@@ -108,7 +109,8 @@ namespace CoreCSharp
                 program?.Run();
 
                 Console.WriteLine("-- End of Program --");
-                Console.WriteLine("  ");
+                Console.ReadKey();
+                Console.WriteLine(" Click any key to proceed ");
             }
         }
     }
