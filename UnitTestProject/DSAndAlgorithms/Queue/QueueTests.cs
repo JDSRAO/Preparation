@@ -37,5 +37,22 @@ namespace CSharpSamples.DSAndAlgorithms.Queue.Tests
             queue.Enqueue(2);
             Assert.AreEqual(2, queue.Peek());
         }
+
+        [Test()]
+        public void ToArrayCountTest()
+        {
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(2);
+            Assert.AreEqual(1, queue.ToArray().Length);
+        }
+
+        [Test()]
+        public void ToArrayDataTypeTest()
+        {
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(2);
+            var array = queue.ToArray();
+            Assert.True(array.GetType().IsArray);
+        }
     }
 }

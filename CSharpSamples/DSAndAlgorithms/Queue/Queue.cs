@@ -56,15 +56,23 @@ namespace CSharpSamples.DSAndAlgorithms.Queue
         /// Convert the Queue to an array
         /// </summary>
         /// <returns>Array representaion of Queue</returns>
-        public Array ToArray()
+        public T[] ToArray()
         {
             IList<T> list = new List<T>(llist.Count);
             var node = llist.Head;
-            while(node.Next != null)
+            if(llist.Count == 1)
             {
                 list.Add(node.Value);
             }
-            return list.ToArray();
+            else
+            {
+                while (node.Next != null)
+                {
+                    list.Add(node.Value);
+                }
+            }
+            
+            return list.ToArray<T>();
         }
 
     }
