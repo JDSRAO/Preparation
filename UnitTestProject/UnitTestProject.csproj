@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlgorithmsUnitTest.cs" />
+    <Compile Include="DSAndAlgorithms\Algorithms\AlgorithmsUnitTest.cs" />
+    <Compile Include="DSAndAlgorithms\Queue\QueueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

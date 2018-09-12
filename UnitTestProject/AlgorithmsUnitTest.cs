@@ -9,6 +9,7 @@ namespace UnitTestProject
     public class AlgorithmsUnitTest
     {
         [TestMethod]
+        [Timeout(3000)]
         public void BinarySearchTest()
         {
             List<int> numbers = new List<int>()
@@ -19,10 +20,12 @@ namespace UnitTestProject
                 123,
                 2
             };
-            Assert.AreEqual(2, numbers.BinaryASearch(2));
+            numbers.SimpleSortOptimised(); // PreCondition
+            Assert.AreEqual(4, numbers.BinaryASearch(2));
         }
 
         [TestMethod]
+        [Timeout(1000)]
         public void QuickSortTest()
         {
             List<int> numbers = new List<int>()

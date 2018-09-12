@@ -70,6 +70,7 @@
     <Compile Include="DSAndAlgorithms\LinkedList\DoublyLinkedList.cs" />
     <Compile Include="DSAndAlgorithms\LinkedList\SinglyLL.cs" />
     <Compile Include="DSAndAlgorithms\LinkedList\SLLProgram.cs" />
+    <Compile Include="DSAndAlgorithms\Queue\Queue.cs" />
     <Compile Include="EventDrivenArchitecture\EDAProgram.cs" />
     <Compile Include="EventDrivenArchitecture\SampleProgram\FileFoundArgs.cs" />
     <Compile Include="EventDrivenArchitecture\SampleProgram\FileSearcher.cs" />
