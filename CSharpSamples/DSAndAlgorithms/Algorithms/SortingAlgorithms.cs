@@ -33,7 +33,12 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                             index = j;
                         }
                     }
-                    list.Swap(i, index);
+
+                    if(i != index)
+                    {
+                        list.Swap(i, index);
+                    }
+
                 }
             }
             return list;
