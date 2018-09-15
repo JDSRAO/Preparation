@@ -10,6 +10,8 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
     {
         /// <summary>
         /// Binary search algorithm
+        /// Works on sorted DS
+        /// Divide and search a value
         /// </summary>
         /// <typeparam name="T">Data type</typeparam>
         /// <param name="data">Current list object</param>

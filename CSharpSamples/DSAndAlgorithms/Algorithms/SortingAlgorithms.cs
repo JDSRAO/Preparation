@@ -8,11 +8,17 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
 {
     /// <summary>
     /// Contains below soring algorithms
-    /// Bubble sort, Merge Sort, Quick sort, Insertion Sort
+    /// Selection sort, Bubble sort, Merge Sort, Quick sort, Insertion Sort
     /// </summary>
     public static class SortingAlgorithms
     {
-
+        /// <summary>
+        /// Selection Sort Algorithm
+        /// Find the smallest element from the DS and swap it at the beggining and repeat until the DS is sorted
+        /// </summary>
+        /// <typeparam name="T">Data type</typeparam>
+        /// <param name="list">Unsorted list</param>
+        /// <returns>Sorted list</returns>
         public static List<T> SelectionSort<T>(this List<T> list)
         {
             if(ReferenceEquals(list, null))
@@ -44,6 +50,13 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
             return list;
         }
 
+        /// <summary>
+        /// Simple sorting algorithm
+        /// Compare two values and swap them if the first is greater than the second
+        /// </summary>
+        /// <typeparam name="T">Data type</typeparam>
+        /// <param name="list">Unsorted list</param>
+        /// <returns>Sorted list</returns>
         public static List<T> SimpleSort<T>(this List<T> list) where T : struct, IComparable<T>
         {
             int itrs = 0;
@@ -64,6 +77,13 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
             return list;
         }
 
+        /// <summary>
+        /// Optimised Simple Sort Algorithm
+        /// Optimised the simeple sort algorightm by reducing duplicate iterations
+        /// </summary>
+        /// <typeparam name="T">Data type</typeparam>
+        /// <param name="list">Unsorted list</param>
+        /// <returns>Sorted list</returns>
         public static List<T> SimpleSortOptimised<T>(this List<T> list) where T : struct, IComparable<T>
         {
             int itrs = 0;
@@ -82,7 +102,14 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
             return list;
         }
 
-        public static void BubbleSort<T>(this List<T> list) where T : struct, IComparable<T>
+        /// <summary>
+        /// Bubble sort algorithm
+        /// Compare adjacent elements and swap if largest and continue until the DS is sorted
+        /// </summary>
+        /// <typeparam name="T">Data type</typeparam>
+        /// <param name="list">Unsorted list</param>
+        /// <returns>Sorted list</returns>
+        public static List<T> BubbleSort<T>(this List<T> list) where T : struct, IComparable<T>
         {
             if (!ReferenceEquals(list, null) && list.Any())
             {
@@ -107,9 +134,16 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
 
                 Console.WriteLine(itrs);
             }
+            return list;
         }
 
-        public static void BubbleSortOptimised<T>(this List<T> list) where T : struct, IComparable<T>
+        /// <summary>
+        /// Optimised Bubble sort algorithm
+        /// </summary>
+        /// <typeparam name="T">Data type</typeparam>
+        /// <param name="list">Unsorted list</param>
+        /// <returns>Sorted list</returns>
+        public static List<T> BubbleSortOptimised<T>(this List<T> list) where T : struct, IComparable<T>
         {
             if (!ReferenceEquals(list, null) && list.Any())
             {
@@ -127,6 +161,7 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms
                 }
                 Console.WriteLine(itrs);
             }
+            return list;
         }
 
         public static void QuickSort<T>(this List<T> list) where T : struct, IComparable<T>
