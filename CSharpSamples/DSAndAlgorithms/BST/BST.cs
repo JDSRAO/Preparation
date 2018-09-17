@@ -8,7 +8,7 @@ namespace CSharpSamples.DSAndAlgorithms.BST
 {
     public class BST<T> where T : struct
     {
-        private BSNode<T> Root { get; set; }
+        public BSNode<T> Root { get; set; }
 
         private int count;
 
@@ -48,6 +48,143 @@ namespace CSharpSamples.DSAndAlgorithms.BST
         public void Print()
         {
             var node = Root;
+            //Preorder
+            //Postorder
+            //Inorder
+            // Breadth first approach
+        }
+
+        public bool Delete(T item)
+        {
+            var node = Root;
+            if(node == null)
+            {
+                return false;
+            }
+            
+            return SearchAndDelete(node, item);
+        }
+
+        public BSNode<T> GetParent(T item)
+        {
+            var node = Root;
+            if( Equals(node.Value,item))
+            {
+                return null;
+            }
+            return GetParent(node, item);
+        }
+
+        public BSNode<T> GetNode(T item)
+        {
+            if(Root == null)
+            {
+                return null;
+            }
+            return GetNode(Root, item);
+        }
+
+        private BSNode<T> GetParent(BSNode<T> node, T item)
+        {
+            if(Compare(item, node.Value) < 0)
+            {
+                if(node.Left == null)
+                {
+                    return null;
+                }
+                else if(Equals(node.Left.Value, item))
+                {
+                    return node;
+                }
+                else
+                {
+                    GetParent(node.Left, item);
+                }
+            }
+            else
+            {
+                if (node.Right == null)
+                {
+                    return null;
+                }
+                else if(Equals(node.Right.Value, item))
+                {
+                    return node;
+                }
+                else
+                {
+                    return GetParent(node.Right, item);
+                }
+            }
+            return null;
+        }
+
+        private BSNode<T> GetNode(BSNode<T> node, T item)
+        {
+            if (Compare(node.Value, item) <= 0)
+            {
+                if (Equals(node.Value, item))
+                {
+                    return node;
+                }
+                else
+                {
+                    if (node.Right != null)
+                    {
+                        return GetNode(node.Right, item);
+                    }
+                }
+            }
+            else
+            {
+                if(Equals(node.Value, item))
+                {
+                    return node;
+                }
+                else
+                {
+                    if(node.Left != null)
+                    {
+                        return GetNode(node.Left, item);
+                    }
+                }
+            }
+            return null;
+        }
+
+        private bool SearchAndDelete(BSNode<T> node, T item)
+        {
+            if (Compare(node.Value, item) <= 0)
+            {
+                if (Equals(node.Value, item))
+                {
+                    return true;
+                }
+                else
+                {
+                    if (node.Right != null)
+                    {
+                        return Contains(node.Right, item);
+                    }
+                }
+
+            }
+            else
+            {
+                if (Equals(node.Value, item))
+                {
+                    return true;
+                }
+                else
+                {
+                    if (node.Left != null)
+                    {
+                        return Contains(node.Left, item);
+                    }
+                }
+
+            }
+            return false;
         }
 
         private bool Contains(BSNode<T> node, T item)

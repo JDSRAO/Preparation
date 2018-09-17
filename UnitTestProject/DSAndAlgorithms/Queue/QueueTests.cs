@@ -52,7 +52,7 @@ namespace CSharpSamples.DSAndAlgorithms.Queue.Tests
             Queue<int> queue = new Queue<int>();
             queue.Enqueue(2);
             var array = queue.ToArray();
-            Assert.True(array.GetType().IsArray);
+            Assert.IsTrue(array.GetType().IsArray);
         }
     }
 }
