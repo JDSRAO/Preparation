@@ -26,7 +26,8 @@ namespace CSharpSamples.DSAndAlgorithms.Queue.Tests
             Queue<int> queue = new Queue<int>();
             queue.Enqueue(4);
             queue.Enqueue(5);
-            queue.Dequeue();
+            int value = queue.Dequeue();
+            Assert.AreEqual(4, value);
             Assert.AreEqual(1, queue.Count);
         }
 
@@ -36,6 +37,7 @@ namespace CSharpSamples.DSAndAlgorithms.Queue.Tests
             Queue<int> queue = new Queue<int>();
             queue.Enqueue(2);
             Assert.AreEqual(2, queue.Peek());
+            Assert.AreEqual(1, queue.Count);
         }
 
         [Test()]

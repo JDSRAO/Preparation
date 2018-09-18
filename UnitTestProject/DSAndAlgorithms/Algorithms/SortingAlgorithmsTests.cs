@@ -52,6 +52,13 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms.Tests
         }
 
         [Test()]
+        public void SelectionSort__Item_Count_Test()
+        {
+            List<int> list = new List<int>() { 1, 3, 4,6, 6 };
+            Assert.AreEqual(5, list.SelectionSort().Count);
+        }
+
+        [Test()]
         public void SelectionSortIntegerTest()
         {
             List<int> actual = new List<int>();
@@ -75,17 +82,19 @@ namespace CSharpSamples.DSAndAlgorithms.Algorithms.Tests
         [Test()]
         public void BubbleSortIntegerTest()
         {
-            var actual = new List<int>() { -1, 1, 5, };
-            var expected = new List<int>() { 1, 5, -1,};
-            Assert.IsTrue(expected.BubbleSort().SequenceEqual(actual));
+            var expected = new List<int>() { -1, 1, 5, };
+            var actual = new List<int>() { 1, 5, -1, };
+            Assert.IsTrue(actual.BubbleSort().SequenceEqual(expected));
         }
 
         [Test()]
         public void BubbleSortCharTest()
         {
-            var actual = new List<int>() { 'a', 'b', 'i' };
-            var expected = new List<int>() { 'b', 'a', 'i' };
-            Assert.IsTrue(expected.BubbleSort().SequenceEqual(actual));
+            var expected = new List<int>() { 'a', 'b', 'i' };
+            var actual = new List<int>() { 'b', 'a', 'i' };
+            Assert.IsTrue(actual.BubbleSort().SequenceEqual(expected));
         }
+
+        
     }
 }

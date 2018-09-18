@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="DSAndAlgorithms\Algorithms\SortingAlgorithmsTests.cs" />
     <Compile Include="DSAndAlgorithms\BST\BSTTests.cs" />
+    <Compile Include="DSAndAlgorithms\LinkedList\SinglyLLTests.cs" />
     <Compile Include="DSAndAlgorithms\Queue\QueueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

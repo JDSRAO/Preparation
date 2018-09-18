@@ -38,7 +38,7 @@ namespace CSharpSamples.DSAndAlgorithms.BST.Tests
             bst.Add(3);
             bst.Add(2);
             bst.Delete(2);
-            Assert.AreEqual(2, bst.Count);
+            Assert.AreEqual(1, bst.Count);
         }
 
         [Test()]
