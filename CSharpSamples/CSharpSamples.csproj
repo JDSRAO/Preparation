@@ -79,6 +79,7 @@
     <Compile Include="ExtensionMethods\MethodExtensionProgram.cs" />
     <Compile Include="ExtensionMethods\MyExtensions.cs" />
     <Compile Include="ExtensionMethods\Test.cs" />
+    <Compile Include="Generics\Generics.cs" />
     <Compile Include="IProgram.cs" />
     <Compile Include="LINQ\CompositeJoinQuery.cs" />
     <Compile Include="LINQ\LeftJoinQuery.cs" />
@@ -102,5 +103,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

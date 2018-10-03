@@ -37,6 +37,16 @@ namespace CSharpSamples.Delegate
             };
 
             Test_YourFunction();
+            PhotoEditor editor = new PhotoEditor();
+            Action<string> actions = (path) => 
+            {
+                Console.WriteLine(path + "from action 1");
+            };
+            actions += (path) => 
+            {
+                Console.WriteLine("From action 2");
+            };
+            editor.Process($"{this.ToString()}", actions);
         }
 
         private void Test_YourFunction(double x = 40)

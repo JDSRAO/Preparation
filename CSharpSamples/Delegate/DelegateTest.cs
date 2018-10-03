@@ -16,4 +16,19 @@ namespace CSharpSamples.Delegate
             
         }
     }
+
+    public class PhotoEditor
+    {
+        public delegate void Filters(string message);
+
+        public PhotoEditor()
+        {
+
+        }
+
+        public void Process(string path, Action<string> filters)
+        {
+            filters(path);
+        }
+    }
 }
