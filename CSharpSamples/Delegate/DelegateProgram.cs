@@ -13,9 +13,9 @@ namespace CSharpSamples.Delegate
         public void Run()
         {
             Function sq = new Function(Square);
-            Func<int, int> square = x => x * x;
+            Func<int, int> square = x => x * x; // Lambda expression
             sq += Square;
-            sq += (x) => { return x * x; };
+            sq += (x) => { return x * x; }; // lambda expression similar to what used in LINQ
 
             Console.WriteLine($"{sq.Invoke(2)}"); 
             Console.WriteLine($"{sq(2)}");
