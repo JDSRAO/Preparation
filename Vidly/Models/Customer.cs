@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Vidly.Models
 {
-    public class Movie
+    public class Customer
     {
-        public int ID { get; set; }
         public string Name { get; set; }
+        public int ID { get; set; }
     }
 }
