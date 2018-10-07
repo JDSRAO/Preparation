@@ -14,6 +14,9 @@
                             <td>
                                 <h4>Customers</h4>
                             </td>
+                            <td>
+                                <h4>Genre</h4>
+                            </td>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,8 +24,9 @@
                         {
                             <tr>
                                 <td>
-                                    @Model[i].Name
+                                    @Html.ActionLink(Model[i].Name, "Details", new { id = Model[i].ID })
                                 </td>
+                                <td>@Model[i].Genre.Name</td>
                             </tr>
                         }
                     </tbody>

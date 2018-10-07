@@ -9,7 +9,7 @@ using Vidly.Models;
 
 namespace Vidly.Controllers
 {
-    [RoutePrefix("movies")]
+    [RoutePrefix("customers")]
     public class CustomersController : Controller
     {
         private AuthContext context = new AuthContext();

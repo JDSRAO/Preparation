@@ -188,6 +188,7 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Helpers\Constants.cs" />
     <Compile Include="Migrations\201810070941592_MovieAndCustomersSetup.cs" />
     <Compile Include="Migrations\201810070941592_MovieAndCustomersSetup.Designer.cs">
       <DependentUpon>201810070941592_MovieAndCustomersSetup.cs</DependentUpon>
@@ -208,7 +209,12 @@
     <Compile Include="Migrations\201810071137249_CutomerDOB.Designer.cs">
       <DependentUpon>201810071137249_CutomerDOB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810071206568_GenreCodeMigration.cs" />
+    <Compile Include="Migrations\201810071206568_GenreCodeMigration.Designer.cs">
+      <DependentUpon>201810071206568_GenreCodeMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Configuration\CustomersMap.cs" />
+    <Compile Include="Models\Configuration\GenreMap.cs" />
     <Compile Include="Models\Configuration\MembershipTypeMap.cs" />
     <Compile Include="Models\Configuration\MovieMap.cs" />
     <Compile Include="Global.asax.cs">
@@ -224,6 +230,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -272,6 +279,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -311,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810071137249_CutomerDOB.resx">
       <DependentUpon>201810071137249_CutomerDOB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810071206568_GenreCodeMigration.resx">
+      <DependentUpon>201810071206568_GenreCodeMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

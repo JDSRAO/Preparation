@@ -1,24 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Vidly.Identity;
 using Vidly.Models;
 
 namespace Vidly.Controllers
 {
+    [RoutePrefix("movies")]
     public class MoviesController : Controller
     {
-        static List<Movie> movies = new List<Movie>()
-        {
-            new Movie() { ID = 1, Name = "X-Men : Origins" },
-            new Movie() { ID = 2, Name = "Wolverine" }
-        };
+        private AuthContext context = new AuthContext();
 
         // GET: Movies
         public ActionResult Index()
         {
+            var movies = context.Movies.Include(x => x.Genre).ToList();
             return View(movies);
+        }
+
+        [Route("details/{id}")]
+        public ActionResult Details(int id)
+        {
+            var movie = context.Movies.FirstOrDefault(x => x.ID == id);
+            if(movie == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(movie);
+            }
         }
     }
 }

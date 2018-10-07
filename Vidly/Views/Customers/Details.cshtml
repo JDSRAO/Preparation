@@ -6,7 +6,7 @@
     <li>MembershipType : @Model.MembershipType.Name</li>
     @if(Model.DOB.HasValue)
     {
-        <li>DOB : @Model.DOB.Value.ToString("dd MMM yyyy")</li>
+        <li>DOB : @Model.DOB.Value.ToString(Vidly.Helpers.Constants.DateFormat) </li>
     }
     
 </ul>

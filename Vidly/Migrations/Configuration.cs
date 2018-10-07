@@ -26,6 +26,12 @@ namespace Vidly.Migrations
             {
                 context.MembershipTypes.AddOrUpdate(item);
             }
+
+            var genres = GetGenreInformation();
+            foreach (var genre in genres)
+            {
+                context.Genres.AddOrUpdate(genre);
+            }
         }
 
         private List<MembershipType> GetMembershipTypes()
@@ -38,6 +44,18 @@ namespace Vidly.Migrations
                 new MembershipType() { ID = 4, SignUpFee = 90, DiscountRate = 15, DurationInMonths = 12, CreatedDateTime = DateTime.UtcNow, CreatedBy = "Admin", LastUpdatedBy = "Admin", LastUpdatedDateTime = DateTime.UtcNow, Name = "Yearly" }
             };
             return memberShipTypes;
+        }
+
+        public List<Genre> GetGenreInformation()
+        {
+            var genre = new List<Genre>()
+            {
+                new Genre() { ID = 1, Name = "Action" },
+                new Genre() { ID = 1, Name = "Romance" },
+                new Genre() { ID = 1, Name = "Sci-Fi" },
+                new Genre() { ID = 1, Name = "Thriller" }
+            };
+            return genre;
         }
     }
 }

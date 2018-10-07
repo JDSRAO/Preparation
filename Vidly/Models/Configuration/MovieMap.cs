@@ -19,6 +19,9 @@ namespace Vidly.Models.Configuration
             Property(x => x.CreatedBy).IsRequired();
             Property(x => x.LastUpdatedDateTime).IsRequired();
             Property(x => x.LastUpdatedBy).IsRequired();
+            Property(x => x.NumberInStock).IsRequired();
+            Property(x => x.AddedDate).IsRequired();
+            HasRequired(x => x.Genre).WithRequiredDependent();
 
             ToTable("Movies");
         }
