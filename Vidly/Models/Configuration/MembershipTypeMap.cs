@@ -3,25 +3,24 @@ using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
-using Vidly.Models;
 
 namespace Vidly.Models.Configuration
 {
-    public class CustomersMap : EntityTypeConfiguration<Customer>
+    public class MembershipTypeMap : EntityTypeConfiguration<MembershipType>
     {
-        public CustomersMap()
+        public MembershipTypeMap()
         {
             HasKey(x => x.ID);
 
-            Property(x => x.ID).HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity);
-            Property(x => x.Name).IsRequired();
+            Property(x => x.DiscountRate).IsRequired();
+            Property(x => x.SignUpFee).IsRequired();
+            Property(x => x.DurationInMonths).IsRequired();
             Property(x => x.CreatedDateTime).IsRequired();
             Property(x => x.CreatedBy).IsRequired();
             Property(x => x.LastUpdatedDateTime).IsRequired();
             Property(x => x.LastUpdatedBy).IsRequired();
-            HasRequired(x => x.MembershipType).WithRequiredDependent();
 
-            ToTable("Customers");
-        }
+            ToTable("MembershipTypes");
+    }
     }
 }

@@ -192,7 +192,12 @@
     <Compile Include="Migrations\201810070941592_MovieAndCustomersSetup.Designer.cs">
       <DependentUpon>201810070941592_MovieAndCustomersSetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810071012070_AddMembershipType.cs" />
+    <Compile Include="Migrations\201810071012070_AddMembershipType.Designer.cs">
+      <DependentUpon>201810071012070_AddMembershipType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Configuration\CustomersMap.cs" />
+    <Compile Include="Models\Configuration\MembershipTypeMap.cs" />
     <Compile Include="Models\Configuration\MovieMap.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,6 +212,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\QueryStringOAuthBearerProvider.cs" />
@@ -281,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810070941592_MovieAndCustomersSetup.resx">
       <DependentUpon>201810070941592_MovieAndCustomersSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810071012070_AddMembershipType.resx">
+      <DependentUpon>201810071012070_AddMembershipType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
