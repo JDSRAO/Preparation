@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Vidly.Models
 {
-    public class Customer
+    public class Customer : BaseModel
     {
         public string Name { get; set; }
-        public int ID { get; set; }
+        public bool IsSubscribedToNewsLetter { get; set; }
     }
 }

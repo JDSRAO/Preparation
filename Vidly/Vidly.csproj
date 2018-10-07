@@ -188,6 +188,12 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Migrations\201810070941592_MovieAndCustomersSetup.cs" />
+    <Compile Include="Migrations\201810070941592_MovieAndCustomersSetup.Designer.cs">
+      <DependentUpon>201810070941592_MovieAndCustomersSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Configuration\CustomersMap.cs" />
+    <Compile Include="Models\Configuration\MovieMap.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,6 +205,7 @@
       <DependentUpon>201810061815237_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -271,6 +278,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810061815237_InitialMigration.resx">
       <DependentUpon>201810061815237_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810070941592_MovieAndCustomersSetup.resx">
+      <DependentUpon>201810070941592_MovieAndCustomersSetup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

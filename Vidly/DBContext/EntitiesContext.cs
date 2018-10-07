@@ -1,18 +1,18 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Vidly.Identity.Models;
 using System.Data.Entity;
-using System.Reflection;
 using System.Data.Entity.ModelConfiguration;
+using System.Linq;
+using System.Reflection;
+using System.Web;
+using Vidly.DBContext.EntityConfiguration;
+using Vidly.Models;
 
-namespace Vidly.Identity
+namespace Vidly.DBContext
 {
-    public class AuthContext : IdentityDbContext<ApplicationUser>
+    public class EntitiesContext : DbContext
     {
-        public AuthContext() : base("authContext")
+        public EntitiesContext() : base("Entities")
         {
 
         }
