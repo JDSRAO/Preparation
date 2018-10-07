@@ -12,6 +12,7 @@ namespace Vidly.Models.Configuration
         {
             HasKey(x => x.ID);
 
+            Property(x => x.Name).IsRequired().HasMaxLength(50);
             Property(x => x.DiscountRate).IsRequired();
             Property(x => x.SignUpFee).IsRequired();
             Property(x => x.DurationInMonths).IsRequired();

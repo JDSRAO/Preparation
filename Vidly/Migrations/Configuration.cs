@@ -22,17 +22,20 @@ namespace Vidly.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
             var memberShipTypes = GetMembershipTypes();
-            context.MembershipTypes.AddRange(memberShipTypes);
+            foreach (var item in memberShipTypes)
+            {
+                context.MembershipTypes.AddOrUpdate(item);
+            }
         }
 
         private List<MembershipType> GetMembershipTypes()
         {
             var memberShipTypes = new List<MembershipType>()
             {
-                new MembershipType() { ID = 1, SignUpFee = 0, DiscountRate = 0, DurationInMonths = 0, CreatedDateTime = DateTime.UtcNow, CreatedBy = "Admin", LastUpdatedBy = "Admin", LastUpdatedDateTime = DateTime.UtcNow },
-                new MembershipType() { ID = 1, SignUpFee = 30, DiscountRate = 10, DurationInMonths = 1, CreatedDateTime = DateTime.UtcNow, CreatedBy = "Admin", LastUpdatedBy = "Admin", LastUpdatedDateTime = DateTime.UtcNow },
-                new MembershipType() { ID = 1, SignUpFee = 90, DiscountRate = 15, DurationInMonths = 3, CreatedDateTime = DateTime.UtcNow, CreatedBy = "Admin", LastUpdatedBy = "Admin", LastUpdatedDateTime = DateTime.UtcNow },
-                new MembershipType() { ID = 1, SignUpFee = 90, DiscountRate = 15, DurationInMonths = 3, CreatedDateTime = DateTime.UtcNow, CreatedBy = "Admin", LastUpdatedBy = "Admin", LastUpdatedDateTime = DateTime.UtcNow }
+                new MembershipType() { ID = 1, SignUpFee = 0, DiscountRate = 0, DurationInMonths = 0, CreatedDateTime = DateTime.UtcNow, CreatedBy = "Admin", LastUpdatedBy = "Admin", LastUpdatedDateTime = DateTime.UtcNow, Name = "Pay as you go" },
+                new MembershipType() { ID = 2, SignUpFee = 30, DiscountRate = 10, DurationInMonths = 1, CreatedDateTime = DateTime.UtcNow, CreatedBy = "Admin", LastUpdatedBy = "Admin", LastUpdatedDateTime = DateTime.UtcNow, Name = "Monthly" },
+                new MembershipType() { ID = 3, SignUpFee = 90, DiscountRate = 15, DurationInMonths = 4, CreatedDateTime = DateTime.UtcNow, CreatedBy = "Admin", LastUpdatedBy = "Admin", LastUpdatedDateTime = DateTime.UtcNow, Name = "Quarterly" },
+                new MembershipType() { ID = 4, SignUpFee = 90, DiscountRate = 15, DurationInMonths = 12, CreatedDateTime = DateTime.UtcNow, CreatedBy = "Admin", LastUpdatedBy = "Admin", LastUpdatedDateTime = DateTime.UtcNow, Name = "Yearly" }
             };
             return memberShipTypes;
         }
