@@ -16,6 +16,7 @@
                             <td>
                                 <h4>Customers</h4>
                             </td>
+                            <td><h4>Membership Type</h4></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,6 +26,7 @@
                                 <td>
                                     @Html.ActionLink(Model[i].Name, "Details", new { Model[i].ID })
                                 </td>
+                                <td>@Model[i].MembershipType.Name</td>
                             </tr>
                         }
                     </tbody>
