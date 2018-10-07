@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201810071113580_NameForMemberShipType.Designer.cs">
       <DependentUpon>201810071113580_NameForMemberShipType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810071137249_CutomerDOB.cs" />
+    <Compile Include="Migrations\201810071137249_CutomerDOB.Designer.cs">
+      <DependentUpon>201810071137249_CutomerDOB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Configuration\CustomersMap.cs" />
     <Compile Include="Models\Configuration\MembershipTypeMap.cs" />
     <Compile Include="Models\Configuration\MovieMap.cs" />
@@ -304,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810071113580_NameForMemberShipType.resx">
       <DependentUpon>201810071113580_NameForMemberShipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810071137249_CutomerDOB.resx">
+      <DependentUpon>201810071137249_CutomerDOB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

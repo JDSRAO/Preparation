@@ -2,3 +2,12 @@
 
 <h2>@Model.Name</h2>
 
+<ul>
+    <li>MembershipType : @Model.MembershipType.Name</li>
+    @if(Model.DOB.HasValue)
+    {
+        <li>DOB : @Model.DOB.Value.ToString("dd MMM yyyy")</li>
+    }
+    
+</ul>
+

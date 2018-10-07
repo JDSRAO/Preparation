@@ -19,6 +19,7 @@ namespace Vidly.Models.Configuration
             Property(x => x.CreatedBy).IsRequired();
             Property(x => x.LastUpdatedDateTime).IsRequired();
             Property(x => x.LastUpdatedBy).IsRequired();
+            Property(x => x.DOB).IsOptional();
             HasRequired(x => x.MembershipType).WithRequiredDependent();
 
             ToTable("Customers");
