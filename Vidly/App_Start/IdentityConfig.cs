@@ -2,12 +2,16 @@
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using Newtonsoft.Json.Serialization;
 using Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Configuration;
+using System.Web.Http;
+using Vidly.Filters;
 using Vidly.Identity;
 using Vidly.Providers;
 
@@ -53,6 +57,31 @@ namespace Vidly.App_Start
             };
 
             app.UseCookieAuthentication(cookieOptions);
+        }
+
+        /// <summary>
+        /// Configures the WebAPI
+        /// </summary>
+        /// <returns>HttpConfiguration Object populated with default configuration values</returns>
+        private HttpConfiguration ConfigureWebApi()
+        {
+            //Configuration objetct
+            HttpConfiguration config = new HttpConfiguration();
+
+            //Error detail policy
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+
+            config.Filters.Add(new HandleExceptionAttribute());
+            //Map routes
+            config.MapHttpAttributeRoutes();
+
+            //Formatter for json
+            //var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            //jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            //Added for Entity Frameowrk Reference Loop issues
+            //jsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            return config;
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly.Identity;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -29,6 +30,37 @@ namespace Vidly.Controllers
                 return HttpNotFound();
             }
             return View(customer);
+        }
+
+        [Route("new")]
+        public ActionResult NewCustomer()
+        {
+            var viewModel = new NewCustomerViewModel();
+            viewModel.MembershipTypes = context.MembershipTypes.ToList();
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(Customer model)
+        {
+            if(model != null)
+            {
+                if(model.ID == 0)
+                {
+                    context.Customers.Add(model);
+                }
+                else
+                {
+                    var customer = context.Customers.FirstOrDefault(x => x.ID == model.ID);
+                    customer.Name = model.Name;
+                }
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                throw new InvalidOperationException("Error saving customer data");
+            }
         }
     }
 }
