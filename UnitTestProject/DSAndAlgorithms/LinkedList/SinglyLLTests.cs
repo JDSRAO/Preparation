@@ -32,21 +32,15 @@ namespace CSharpSamples.DSAndAlgorithms.LinkedList.Tests
         }
 
         [Test()]
-        public void Delete_Integer_Test()
+        [TestCase(20,true)]
+        [TestCase(56,false)]
+        public void Delete_Integer_Test(int valueToDelete, bool expectedResult)
         {
-            int expextedCount = 2;
-            int valueToDelete = 20;
-            int valueNotInLLToDelete = 56;
             sll1.Add(1);
             sll1.Add(4);
             sll1.Add(20);
-            var positiveScenarioResult = sll1.Delete(valueToDelete);
-            var negativeScenarioResult = sll1.Delete(valueNotInLLToDelete);
-            Assert.AreEqual(expextedCount, sll1.Count);
-            Assert.IsTrue(positiveScenarioResult);
-            Assert.IsFalse(negativeScenarioResult);
-            Assert.IsFalse(sll1.Contains(valueToDelete));
-            Assert.IsFalse(sll1.Contains(valueNotInLLToDelete));
+            var actualResult = sll1.Delete(valueToDelete);
+            Assert.AreEqual(actualResult, expectedResult);
         }
 
     }
