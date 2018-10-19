@@ -6,6 +6,10 @@
       "type": "string",
       "minLength": 1
     },
+    "ApplicationServerName": {
+      "type": "string",
+      "minLength" :  1
+    },
     "ServicePlanSkuName": {
       "type": "string",
       "defaultValue": "F1",
@@ -26,9 +30,11 @@
       "metadata": {
         "description": "Describes plan's pricing tier and capacity. Check details at https://azure.microsoft.com/en-us/pricing/details/app-service/"
       }
-    }},
+    }
+  },
   "variables": {
-    "ApplicationServerName": "[concat('ApplicationServer', uniqueString(resourceGroup().id))]"},
+    "ApplicationServerName": "[parameters('ApplicationServerName')]"
+  },
   "resources": [
     {
       "name": "[parameters('ServicePlanName')]",
@@ -38,7 +44,7 @@
       "sku": {
         "name": "[parameters('ServicePlanSkuName')]"
       },
-      "dependsOn": [ ],
+      "dependsOn": [],
       "tags": {
         "displayName": "ServicePlan"
       },

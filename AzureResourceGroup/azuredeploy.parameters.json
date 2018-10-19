@@ -3,7 +3,8 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "ServicePlanName": {
-      "value": "TestSample"
-    }
+      "value": "API_Service_Plan"
+    },
+    "ApplicationServerName": {"value": "jdsTaskTracker"}
   }
 }

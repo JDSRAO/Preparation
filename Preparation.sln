@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNinja.UnitTests", "Note
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestNinja", "Notes\Unit Testing\Source Code\source-code-completed-1\source-code-completed\TestNinja\TestNinja\TestNinja.csproj", "{7328740E-4B78-464F-8352-65D887F2145F}"
 EndProject
-Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "AzureResourceGroup", "AzureResourceGroup\AzureResourceGroup.deployproj", "{48768DE7-2B6F-40C3-A1F6-1BDC97D80EEE}"
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "WebUIResourceGroup", "AzureResourceGroup\WebUIResourceGroup.deployproj", "{48768DE7-2B6F-40C3-A1F6-1BDC97D80EEE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ARM Templates", "ARM Templates", "{AA711787-C5A7-4C33-ABCC-8F263C19D9C8}"
 EndProject
