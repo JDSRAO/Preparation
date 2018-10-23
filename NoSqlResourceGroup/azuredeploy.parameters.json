@@ -5,6 +5,6 @@
     "ServicePlanName": {
       "value": "API_Service_Plan"
     },
-    "ApplicationServerName": {"value": "jds-api"}
+    "ApplicationServerName": {"value": "jdsTaskTracker"}
   }
 }
