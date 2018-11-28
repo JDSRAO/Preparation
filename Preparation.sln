@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreCSharp", "CoreCSharp\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpSamples", "CSharpSamples\CSharpSamples.csproj", "{07C89641-B9D4-4D2F-97D8-F1A7C55E4BDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{CB2BBD57-B9CF-462F-8523-869F55A8A234}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpSamples.Tests", "UnitTestProject\CSharpSamples.Tests.csproj", "{CB2BBD57-B9CF-462F-8523-869F55A8A234}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly", "Vidly\Vidly.csproj", "{B7D3AFBA-BD01-490C-8905-FB6F06A49A9B}"
 EndProject
@@ -36,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BD212A6-EF80-47D6-9939-F3ED8D7DCD02}
 	EndGlobalSection
 EndGlobal
