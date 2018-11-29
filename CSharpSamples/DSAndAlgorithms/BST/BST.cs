@@ -158,13 +158,24 @@ namespace CSharpSamples.DSAndAlgorithms.BST
             {
                 if (Equals(node.Value, item))
                 {
+                    BSNode<T> rightNode;
+                    BSNode<T> leftNode;
+                    if (node.Right != null)
+                    {
+                        rightNode = node.Right;
+                    }
+                    if(node.Left != null)
+                    {
+                        leftNode = node.Left;
+                    }
+                    var valueToUpdate = node.Value;
                     return true;
                 }
                 else
                 {
                     if (node.Right != null)
                     {
-                        return Contains(node.Right, item);
+                        return SearchAndDelete(node.Right, item);
                     }
                 }
 
@@ -179,7 +190,7 @@ namespace CSharpSamples.DSAndAlgorithms.BST
                 {
                     if (node.Left != null)
                     {
-                        return Contains(node.Left, item);
+                        return SearchAndDelete(node.Left, item);
                     }
                 }
 

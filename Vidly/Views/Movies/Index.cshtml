@@ -1,0 +1,47 @@
+﻿@model List<Vidly.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section>
+    <div class="row">
+        <div class="col-sm-12">
+            @if (Model.Count != 0)
+            {
+                <table class="table table-responsive table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <td>
+                                <h4>Customers</h4>
+                            </td>
+                            <td>
+                                <h4>Genre</h4>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(Model[i].Name, "Details", new { id = Model[i].ID })
+                                </td>
+                                <td>@Model[i].Genre.Name</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <h3>Customers</h3>
+                <p>
+                    We don't have any movies yet
+                </p>
+            }
+
+        </div>
+    </div>
+</section>
+
+
