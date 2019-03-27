@@ -9,19 +9,49 @@ namespace CSharpSamples.CodeFirstApproach
     public class EFProgram : IProgram
     {
         private object obj = new Object();
+        private EFDbContext context;
+
+        public EFProgram(EFDbContext _dbContext)
+        {
+            context = _dbContext;
+        }
+
+        public EFProgram()
+        {
+
+        }
+
         public void Run()
         {
-            Task.Run(() =>
+            //Task.Run(() =>
+            //{
+            //    lock (obj)
+            //    {
+            //        using (var context = new EFDbContext())
+            //        {
+            //            context.Database.Delete();
+            //            context.Database.Create();
+            //        }
+            //    }
+            //});
+        }
+
+        public bool AddNewItemToDb()
+        {
+            try
             {
-                lock (obj)
+                context.Users.Add(new Entities.User
                 {
-                    using (var context = new EFDbContext())
-                    {
-                        context.Database.Delete();
-                        context.Database.Create();
-                    }
-                }
-            });
+                    Email = "srinivas@cloudthing.com"
+                });
+                context.SaveChangesAsync();
+                
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

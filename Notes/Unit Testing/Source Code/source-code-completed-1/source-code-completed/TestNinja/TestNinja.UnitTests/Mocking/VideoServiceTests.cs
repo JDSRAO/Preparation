@@ -21,7 +21,7 @@ namespace TestNinja.UnitTests.Mocking
         }
         
         [Test]
-        public void ReadVideoTitle_EmptyFile_ReturnError()
+            public void ReadVideoTitle_EmptyFile_ReturnError()
         {
             _fileReader.Setup(fr => fr.Read("video.txt")).Returns("");
 

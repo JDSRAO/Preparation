@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpSamples.CodeFirstApproach.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
@@ -15,6 +16,9 @@ namespace CSharpSamples.CodeFirstApproach
         {
 
         }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
