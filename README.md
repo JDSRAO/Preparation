@@ -1,7 +1,7 @@
 # C# & DotNet Preparation Guide
 A collection of c# and donet sample projects
 
-## Projects
+### Projects
 * LINQ
 * Event Driven Programming
 * Data Structures
@@ -10,3 +10,8 @@ A collection of c# and donet sample projects
 * Delegates & Events
 * Extension Methods
 * Operators 
+
+
+
+### Lincense
+Please refer [here](LICENSE) for license information
